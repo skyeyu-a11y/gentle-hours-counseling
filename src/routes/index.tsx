@@ -189,7 +189,7 @@ function Index() {
           These times are examples only, not live availability. Choosing a time sends a request — every
           time is confirmed personally before anything is booked.
         </p>
-        <p className="mt-6 text-sm text-muted-foreground">Time zone: <T>{TIMEZONE}</T></p>
+        <p className="mt-6 text-sm text-muted-foreground">Time zone: {TIMEZONE}</p>
         <div className="mt-4 grid grid-cols-1 gap-px overflow-hidden rounded-sm border border-border bg-border sm:grid-cols-7">
           {EXAMPLE_WEEK.map((d) => (
             <div key={d.day} className="bg-card p-4">
