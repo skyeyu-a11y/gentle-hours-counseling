@@ -336,8 +336,8 @@ function BookingForm({ slot, setSlot }: { slot: string; setSlot: (s: string) => 
           <input id="preferredSlot" name="preferredSlot" maxLength={200} value={slot} onChange={(e) => setSlot(e.target.value)} placeholder="Pick above, or describe e.g. weekday evenings" className={field} />
         </div>
         <div>
-          <label htmlFor="note" className="text-sm">Anything you'd like me to know (optional)</label>
-          <textarea id="note" name="note" rows={4} maxLength={500} placeholder="A sentence or two is plenty." className={field} />
+          <label htmlFor="note" className="text-sm">Scheduling notes (optional)</label>
+          <textarea id="note" name="note" rows={3} maxLength={500} placeholder="e.g. best way or time to reach you. Please don't share health details here." className={field} />
         </div>
         {status === "error" && <p className="text-sm text-destructive">{msg}</p>}
         <button type="submit" disabled={status === "sending"} className="w-full rounded-sm bg-primary px-6 py-4 text-sm text-primary-foreground transition-opacity hover:opacity-85 disabled:opacity-60 sm:w-auto">
