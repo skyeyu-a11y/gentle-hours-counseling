@@ -7,13 +7,13 @@ import portraitImg from "@/assets/portrait-placeholder.jpg";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "[Counsellor Name] — Individual Counselling" },
+      { title: "Skye — Individual Counselling" },
       {
         name: "description",
         content:
           "A quiet space for individual counselling. Learn about the approach, session formats and example availability, and send a booking enquiry.",
       },
-      { property: "og:title", content: "[Counsellor Name] — Individual Counselling" },
+      { property: "og:title", content: "Skye — Individual Counselling" },
       {
         property: "og:description",
         content: "Learn about the counselling approach, session formats and send a booking enquiry.",
@@ -71,7 +71,7 @@ function Index() {
       {/* Nav */}
       <header className="sticky top-0 z-40 border-b border-border bg-background/90 backdrop-blur">
         <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-6">
-          <a href="#top" className="font-serif text-lg">[Counsellor Name]</a>
+          <a href="#top" className="font-serif text-lg">Skye</a>
           <nav className="hidden items-center gap-8 text-sm md:flex">
             {NAV.slice(0, 4).map(([l, h]) => (
               <a key={h} href={h} className="text-muted-foreground transition-colors hover:text-foreground">{l}</a>
@@ -105,8 +105,8 @@ function Index() {
             heavy or unclear right now, without judgement and without rushing towards answers.
           </p>
           <div className="mt-8 border-l border-sage pl-4 text-sm leading-relaxed">
-            <p className="font-medium"><T>Counsellor Name</T></p>
-            <p className="text-muted-foreground"><T>Title / qualification</T> · <T>Main approach</T></p>
+            <p className="font-medium">Skye</p>
+            <p className="text-muted-foreground">A person in progress · Opening to listen to you</p>
           </div>
           <div className="mt-10 flex flex-col gap-3 sm:flex-row">
             <a href="#sessions" className="rounded-sm bg-primary px-6 py-3 text-center text-sm text-primary-foreground transition-opacity hover:opacity-85">
@@ -131,10 +131,10 @@ function Index() {
           </div>
           <div className="space-y-8 md:col-span-5">
             {[
-              ["Training & background", <>Degree: <T>Degree, institution</T>. Training: <T>Training programmes</T>. Experience: <T>Years / settings of practice</T>. Registration: <T>Professional body & number</T>.</>],
-              ["Approach", <>I mainly draw on <T>e.g. person-centred / psychodynamic / CBT</T>, adapting to what is useful for each person.</>],
-              ["How I work", <>I see counselling as a collaborative relationship. You set the pace; I listen closely, ask questions, and offer reflections. <T>Add your own words on your philosophy</T>.</>],
-              ["Who I work with", <><T>e.g. adults 18+, university students, couples</T>.</>],
+              ["Training & background", <>Degree: UCD Bachelor of Science. Registration: <T>Professional body & number</T>.</>],
+              ["Approach", <>Person-Centred Therapy.</>],
+              ["How I work", <>I value honest conversations, mutual respect, and the freedom to see things from different perspectives. I believe that growth does not always happen in a straight line, and that everyone deserves the time and space to find their own way.</>],
+              ["Who I work with", <>Adults 18+.</>],
             ].map(([h, b]) => (
               <div key={h as string} className="border-b border-border pb-6">
                 <h3 className="text-xl">{h}</h3>
@@ -149,10 +149,10 @@ function Index() {
       <Section id="sessions" num="02" label="Sessions" title="How sessions work">
         <div className="grid gap-px overflow-hidden rounded-sm border border-border bg-border sm:grid-cols-2">
           {[
-            ["i", "Format", <>Online via <T>platform</T>, or in person at <T>address</T>.</>],
-            ["ii", "Length", <>Each session lasts <T>50</T> minutes.</>],
-            ["iii", "Frequency & first contact", <>Usually <T>weekly</T>. We start with a short <T>15-minute</T> call to see whether working together feels right.</>],
-            ["iv", "Fees & changes", <>Fee: <T>amount per session</T>. Please give <T>48 hours</T> notice to reschedule or cancel; <T>late cancellation policy</T>.</>],
+            ["i", "Format", <>Online via Zoom or WeChat.</>],
+            ["ii", "Length", <>Each session lasts 50 minutes.</>],
+            ["iii", "Frequency & first contact", <>Usually weekly. We start with a short 15-minute call to see whether working together feels right.</>],
+            ["iv", "Fees & changes", <>Fee: $1 per session. Please give 48 hours notice to reschedule or cancel; <T>late cancellation policy</T>.</>],
           ].map(([n, h, b]) => (
             <div key={n as string} className="bg-card p-8 transition-colors hover:bg-secondary">
               <p className="font-serif text-sage italic">{n}</p>
@@ -239,20 +239,19 @@ function Index() {
           <div className="mt-10 grid gap-8 text-sm sm:grid-cols-3">
             <div>
               <p className="eyebrow">Contact</p>
-              <p className="mt-3">Email: <T>email</T></p>
-              <p className="mt-1">Phone: <T>phone</T></p>
+              <p className="mt-3">Email: <a href="mailto:jiyue.yu@gmail.com" className="underline underline-offset-4">jiyue.yu@gmail.com</a></p>
+              <p className="mt-1">Phone: 15810778295</p>
             </div>
             <div>
               <p className="eyebrow">Elsewhere</p>
-              <p className="mt-3">WeChat Official Account: <T>name</T></p>
-              <p className="mt-1">Social: <T>link</T></p>
+              <p className="mt-3">Instagram: Skyegtt_</p>
             </div>
             <div>
               <p className="eyebrow">Privacy</p>
               <p className="mt-3 text-muted-foreground">Enquiry details are used only to arrange sessions. <T>Full privacy notice</T></p>
             </div>
           </div>
-          <p className="mt-12 text-xs text-muted-foreground">© {new Date().getFullYear()} [Counsellor Name]. All rights reserved.</p>
+          <p className="mt-12 text-xs text-muted-foreground">© {new Date().getFullYear()} Skye. All rights reserved.</p>
         </div>
       </footer>
     </div>
