@@ -37,15 +37,15 @@ const NAV = [
 ] as const;
 
 /* Edit these example slots by hand. They are NOT live availability. */
-const TIMEZONE = "[Time zone, e.g. GMT+8]";
+const TIMEZONE = "Macau time (GMT+8)";
 const EXAMPLE_WEEK: { day: string; date: string; slots: string[] }[] = [
-  { day: "Mon", date: "[Date]", slots: ["10:00–10:50", "14:00–14:50"] },
-  { day: "Tue", date: "[Date]", slots: ["19:00–19:50"] },
-  { day: "Wed", date: "[Date]", slots: [] },
-  { day: "Thu", date: "[Date]", slots: ["10:00–10:50", "16:00–16:50"] },
-  { day: "Fri", date: "[Date]", slots: ["14:00–14:50"] },
-  { day: "Sat", date: "[Date]", slots: ["10:00–10:50"] },
-  { day: "Sun", date: "[Date]", slots: [] },
+  { day: "Mon", date: "[Date]", slots: ["10:00–10:50", "11:00–11:50"] },
+  { day: "Tue", date: "[Date]", slots: ["10:00–10:50", "11:00–11:50"] },
+  { day: "Wed", date: "[Date]", slots: ["10:00–10:50", "11:00–11:50"] },
+  { day: "Thu", date: "[Date]", slots: ["10:00–10:50", "11:00–11:50"] },
+  { day: "Fri", date: "[Date]", slots: ["10:00–10:50", "11:00–11:50"] },
+  { day: "Sat", date: "[Date]", slots: ["10:00–10:50", "11:00–11:50"] },
+  { day: "Sun", date: "[Date]", slots: ["10:00–10:50", "11:00–11:50"] },
 ];
 
 function Section({ id, num, label, title, children }: { id: string; num: string; label: string; title: ReactNode; children: ReactNode }) {
@@ -131,7 +131,7 @@ function Index() {
           </div>
           <div className="space-y-8 md:col-span-5">
             {[
-              ["Training & background", <>Degree: UCD Bachelor of Science. Registration: <T>Professional body & number</T>.</>],
+              ["Training & background", <>Degree: UCD Bachelor of Science.</>],
               ["Approach", <>Person-Centred Therapy.</>],
               ["How I work", <>I value honest conversations, mutual respect, and the freedom to see things from different perspectives. I believe that growth does not always happen in a straight line, and that everyone deserves the time and space to find their own way.</>],
               ["Who I work with", <>Adults 18+.</>],
@@ -152,7 +152,7 @@ function Index() {
             ["i", "Format", <>Online via Zoom or WeChat.</>],
             ["ii", "Length", <>Each session lasts 50 minutes.</>],
             ["iii", "Frequency & first contact", <>Usually weekly. We start with a short 15-minute call to see whether working together feels right.</>],
-            ["iv", "Fees & changes", <>Fee: $1 per session. Please give 48 hours notice to reschedule or cancel; <T>late cancellation policy</T>.</>],
+            ["iv", "Fees & changes", <>Fee: $1 per session. Please give 48 hours notice to reschedule or cancel.</>],
           ].map(([n, h, b]) => (
             <div key={n as string} className="bg-card p-8 transition-colors hover:bg-secondary">
               <p className="font-serif text-sage italic">{n}</p>
@@ -172,14 +172,13 @@ function Index() {
           {["Stress and low mood", "Relationships with others", "Getting to know yourself", "Intimate relationships", "Life changes and transitions", "Work and study pressure"].map((t) => (
             <li key={t} className="rounded-full border border-border bg-card px-4 py-2 text-sm">{t}</li>
           ))}
-          <li><T>Confirm or edit this list</T></li>
-        </ul>
+          </ul>
         <div className="mt-12 rounded-sm bg-secondary p-6 text-sm leading-relaxed">
           <h3 className="text-lg">When another service may fit better</h3>
           <p className="mt-2 text-muted-foreground">
             This practice may not be the right place if you need urgent crisis support, round-the-clock
             care, or medical or psychiatric assessment. In those situations I'm glad to help you find
-            a more suitable service. <T>Add your specific referral notes</T>
+            a more suitable service.
           </p>
         </div>
       </Section>
@@ -232,8 +231,8 @@ function Index() {
             <p className="font-medium">If you need help right now</p>
             <p className="mt-1 text-muted-foreground">
               This website and practice cannot provide emergency or crisis support. If you or someone
-              else is in immediate danger, please contact your local emergency services or a crisis line
-              in your area: <T>Local emergency number / crisis line</T>.
+              else is in immediate danger, please contact your local emergency services, or call 988
+              for the crisis line.
             </p>
           </div>
           <div className="mt-10 grid gap-8 text-sm sm:grid-cols-3">
