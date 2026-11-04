@@ -119,6 +119,32 @@ function RootShell({ children }: { children: ReactNode }) {
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
 
+  // If a page chunk from an older version can't be fetched (stale tab after an update),
+  // reload once to pick up the latest version instead of showing a blank screen.
+  useEffect(() => {
+    const KEY = "chunk-reload-at";
+    const recover = (msg: string) => {
+      if (!/dynamically imported module|Importing a module script failed|preload/i.test(msg)) return;
+      const last = Number(sessionStorage.getItem(KEY) || 0);
+      if (Date.now() - last < 10000) return;
+      sessionStorage.setItem(KEY, String(Date.now()));
+      window.location.reload();
+    };
+    const onPreload = (e: Event) => { e.preventDefault(); recover("preload"); };
+    const onErr = (e: PromiseRejectionEvent | ErrorEvent) => {
+      const r = "reason" in e ? e.reason : e.error;
+      recover(String(r?.message ?? r ?? ""));
+    };
+    window.addEventListener("vite:preloadError", onPreload);
+    window.addEventListener("unhandledrejection", onErr);
+    window.addEventListener("error", onErr);
+    return () => {
+      window.removeEventListener("vite:preloadError", onPreload);
+      window.removeEventListener("unhandledrejection", onErr);
+      window.removeEventListener("error", onErr);
+    };
+  }, []);
+
   return (
     <QueryClientProvider client={queryClient}>
       {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
