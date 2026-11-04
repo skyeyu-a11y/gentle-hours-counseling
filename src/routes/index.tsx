@@ -33,7 +33,7 @@ const NAV = [
   ["Sessions", "#sessions"],
   ["Topics", "#topics"],
   ["Availability", "#availability"],
-  ["Contact", "#contact"],
+  ["Contact", "#booking"],
 ] as const;
 
 /* Edit these example slots by hand. They are NOT live availability. */
@@ -76,7 +76,7 @@ function Index() {
             {NAV.slice(0, 4).map(([l, h]) => (
               <a key={h} href={h} className="text-muted-foreground transition-colors hover:text-foreground">{l}</a>
             ))}
-            <a href="#contact" className="rounded-sm border border-foreground px-4 py-2 transition-colors hover:bg-primary hover:text-primary-foreground">
+            <a href="#booking" className="rounded-sm border border-foreground px-4 py-2 transition-colors hover:bg-primary hover:text-primary-foreground">
               Send an enquiry
             </a>
           </nav>
@@ -221,7 +221,7 @@ function Index() {
       </Section>
 
       {/* Form */}
-      <Section id="contact" num="05" label="Enquiry" title="Send a booking enquiry">
+      <Section id="booking" num="05" label="Enquiry" title="Send a booking enquiry">
         <BookingForm slot={slot} setSlot={setSlot} />
       </Section>
 
@@ -261,7 +261,7 @@ function Index() {
 
 function BookingForm({ slot, setSlot }: { slot: string; setSlot: (s: string) => void }) {
   const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
-  const [errors, setErrors] = useState<Record<string, string>>({});
+  const [errors, setErrors] = useState<{ name?: string; contact?: string; format?: string }>({});
   const [msg, setMsg] = useState("");
 
   async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
@@ -278,7 +278,7 @@ function BookingForm({ slot, setSlot }: { slot: string; setSlot: (s: string) => 
     if (!parsed.success) {
       const errs: Record<string, string> = {};
       for (const i of parsed.error.issues) errs[String(i.path[0])] = i.path[0] === "format" ? "Please choose a format" : i.message;
-      setErrors(errs);
+      setErrors(errs as typeof errors);
       return;
     }
     setErrors({});
