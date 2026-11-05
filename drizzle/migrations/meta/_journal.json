@@ -15,6 +15,13 @@
       "when": 1793798688276,
       "tag": "0001_admin_and_status",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1793798688277,
+      "tag": "0002_public_booking_insert",
+      "breakpoints": true
     }
   ]
 }
