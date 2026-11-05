@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useState, type ReactNode } from "react";
 import { submitBookingRequest, bookingSchema } from "@/lib/booking.functions";
 import heroImg from "@/assets/hero-room.jpg";
-import portraitImg from "@/assets/portrait-placeholder.jpg";
+import portraitAsset from "@/assets/skye-portrait.jpg.asset.json";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -37,7 +37,7 @@ const NAV = [
 ] as const;
 
 /* Edit these example slots by hand. They are NOT live availability. */
-const TIMEZONE = "Macau time (GMT+8)";
+const TIMEZONE = "California time (Pacific Time)";
 const EXAMPLE_WEEK: { day: string; date: string; slots: string[] }[] = [
   { day: "Mon", date: "[Date]", slots: ["10:00–10:50", "11:00–11:50"] },
   { day: "Tue", date: "[Date]", slots: ["10:00–10:50", "11:00–11:50"] },
@@ -126,8 +126,7 @@ function Index() {
       <Section id="about" num="01" label="About" title="About me">
         <div className="grid gap-10 md:grid-cols-8">
           <div className="md:col-span-3">
-            <img src={portraitImg} alt="Placeholder — replace with the counsellor's portrait" loading="lazy" width={912} height={1152} className="aspect-[4/5] w-full rounded-sm object-cover" />
-            <p className="mt-2 text-xs text-muted-foreground">Placeholder image — replace with your portrait.</p>
+            <img src={portraitAsset.url} alt="Portrait of Skye" loading="lazy" width={1280} height={1920} className="aspect-[4/5] w-full rounded-sm object-cover object-top" />
           </div>
           <div className="space-y-8 md:col-span-5">
             {[
@@ -185,11 +184,7 @@ function Index() {
 
       {/* Availability */}
       <Section id="availability" num="04" label="Availability" title="Example times">
-        <p role="note" className="rounded-sm border border-dashed border-placeholder-foreground bg-placeholder p-4 text-sm text-placeholder-foreground">
-          These times are examples only, not live availability. Choosing a time sends a request — every
-          time is confirmed personally before anything is booked.
-        </p>
-        <p className="mt-6 text-sm text-muted-foreground">Time zone: {TIMEZONE}</p>
+        <p className="text-sm text-muted-foreground">Time zone: {TIMEZONE}</p>
         <div className="mt-4 grid grid-cols-1 gap-px overflow-hidden rounded-sm border border-border bg-border sm:grid-cols-7">
           {EXAMPLE_WEEK.map((d) => (
             <div key={d.day} className="bg-card p-4">
@@ -239,7 +234,7 @@ function Index() {
             <div>
               <p className="eyebrow">Contact</p>
               <p className="mt-3">Email: <a href="mailto:jiyue.yu@gmail.com" className="underline underline-offset-4">jiyue.yu@gmail.com</a></p>
-              <p className="mt-1">Phone: 15810778295</p>
+              <p className="mt-1">Phone: 3412256015 / 15810778295</p>
             </div>
             <div>
               <p className="eyebrow">Elsewhere</p>
@@ -247,7 +242,7 @@ function Index() {
             </div>
             <div>
               <p className="eyebrow">Privacy</p>
-              <p className="mt-3 text-muted-foreground">Enquiry details are used only to arrange sessions. <T>Full privacy notice</T></p>
+              <p className="mt-3 text-muted-foreground">Enquiry details are used only to arrange sessions.</p>
             </div>
           </div>
           <p className="mt-12 text-xs text-muted-foreground">© {new Date().getFullYear()} Skye. All rights reserved.</p>
