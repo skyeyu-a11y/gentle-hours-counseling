@@ -83,7 +83,7 @@ function Admin() {
                   <td className="max-w-xs px-4 py-3 text-muted-foreground">{r.note ?? "—"}</td>
                   <td className="px-4 py-3">
                     <select value={r.status} onChange={(e) => setStatus(r.id, e.target.value)} className="rounded-sm border border-input bg-popover px-2 py-1 capitalize">
-                      {STATUSES.map((s) => <option key={s} value={s}>{s[0].toUpperCase() + s.slice(1)}</option>)}
+                      {STATUSES.map((s) => <option key={s} value={s}>{s.charAt(0).toUpperCase() + s.slice(1)}</option>)}
                     </select>
                   </td>
                 </tr>
